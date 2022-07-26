@@ -1,0 +1,19 @@
+version: "3"
+services:
+  service1:
+    build:
+      context: .
+      dockerfile: ./service1/Dockerfile
+    ports:
+      - "3334:3334"
+    environment:
+      - REPO_OWNER=ortal27
+      - REPO_NAME=Tasty-Foodie
+  service2:
+    build:
+      context: .
+      dockerfile: ./service2/Dockerfile
+    ports:
+      - "3333:3333"
+    environment:
+      - SERVICE1_HOST=service1:3334
